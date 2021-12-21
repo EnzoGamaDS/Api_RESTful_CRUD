@@ -11,6 +11,11 @@ class CategoryController extends Controller
         $categories = Category::all();
         return response()->json($categories);
     }
+    public function show ($id){
+        $categories = Category::find($id);
+        return response()->json($categories);
+
+    }
     public function store(Request $request){
         $categories =  Category::create($request->only(['name', 'description']));
         return response()->json($categories);
